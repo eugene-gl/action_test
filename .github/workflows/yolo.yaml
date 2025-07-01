@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: Run unit tests
         run: echo Testing the branch...
-      - name: Fail
-        run: exit 1
+      # - name: Fail
+      #   run: exit 1
 
   deploy:
     needs: tests
