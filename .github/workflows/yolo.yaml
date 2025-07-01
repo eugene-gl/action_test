@@ -15,10 +15,12 @@ jobs:
     steps:
       - name: Run unit tests
         run: echo Testing the branch...
+      - name: Fail
+        run: exit 1
 
   deploy:
     needs: tests
-    if: always()
+    if: always() && needs.tests.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Build & Deploy
