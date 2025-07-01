@@ -18,6 +18,7 @@ jobs:
 
   deploy:
     needs: tests
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Build & Deploy
