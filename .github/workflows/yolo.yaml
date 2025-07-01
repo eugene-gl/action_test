@@ -1,0 +1,23 @@
+name: Deploy ATC monitoring @ Dev1
+on:
+  workflow_dispatch:
+    inputs:
+      run_tests:
+        description: "Enable to test the deployed branch."
+        type: boolean
+        required: true
+    branches:
+      - '**'
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.run_tests }} 
+    steps:
+      - name: Run unit tests
+        run: echo Testing the branch...
+
+  deploy:
+    needs: tests
+    steps:
+      - name: Run unit tests
+        run: echo Testing the branch...
